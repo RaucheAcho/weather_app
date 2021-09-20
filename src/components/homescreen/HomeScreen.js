@@ -20,7 +20,7 @@ const HomeScreen = () => {
           </div>
           <p>
             <span className="text-8xl font-bold">15</span>
-            <span>°C</span>
+            <span className="text-4xl">°C</span>
           </p>
           <p className="text-4xl font-light">Shower</p>
           <div className="flex flex-col space-y-4 items-center">

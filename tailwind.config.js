@@ -14,6 +14,9 @@ module.exports = {
       backgroundSize: {
         120: "120%",
       },
+      scale: {
+        "-1": "-1",
+      },
     },
   },
   variants: {

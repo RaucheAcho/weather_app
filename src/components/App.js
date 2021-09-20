@@ -9,7 +9,7 @@ function App() {
   return (
     <Layout>
       <div className="bg-primary p-6 col-span-1">
-        <Menu />
+        {/* <Menu /> */}
         <HomeScreen />
       </div>
       <div className="bg-secondary col-span-2 ">

@@ -6,9 +6,11 @@ function DayDetailsCard() {
         <span className="text-4xl font-extrabold">7</span>
         <span className="text-2xl font-regular">mph</span>
       </p>
-      <div className="flex">
-        <span className="bg-gray-400 flex justify-center items-center w-6 h-6 rounded-full mr-2">
-          D
+      <div className="flex items-center">
+        <span className="bg-gray-400 flex justify-center items-center w-10 h-10 rounded-full mr-2">
+          <span className="material-icons transform -scale-1  -rotate-45">
+            send
+          </span>
         </span>
         <p>WSW</p>
       </div>
