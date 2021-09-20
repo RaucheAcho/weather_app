@@ -6,11 +6,11 @@ function Humidity() {
         <span className="text-4xl font-extrabold">84</span>
         <span className="text-2xl font-regular">%</span>
       </p>
-      <div className="flex items-center">
-        <span className="bg-gray-400 flex justify-center items-center w-10 h-10 rounded-full mr-2">
-          <span></span>
-        </span>
-        <p>WSW</p>
+
+      <div className="flex justify-center items-center mt-10 w-full">
+        <div className="w-9/12 h2 bg-white rounded-full mt-2">
+          <div className="bg-yellow-400 w-32 h-2 rounded-full"></div>
+        </div>
       </div>
     </div>
   );
