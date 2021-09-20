@@ -1,4 +1,4 @@
-function DayDetailsCard() {
+function WindStatus() {
   return (
     <div className="bg-primary flex flex-col items-center justify-center py-3 text-gray-200 space-y-2">
       <p>Wind status</p>
@@ -18,4 +18,4 @@ function DayDetailsCard() {
   );
 }
 
-export default DayDetailsCard;
+export default WindStatus;

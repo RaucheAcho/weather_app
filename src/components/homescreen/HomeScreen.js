@@ -1,6 +1,5 @@
 import CustomButton from "../custom-button/customButton";
 import shower from "../../assets/img/Shower.png";
-import { useState } from "react";
 
 const HomeScreen = ({ handleMenu }) => {
   return (

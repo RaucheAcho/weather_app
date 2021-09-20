@@ -6,7 +6,7 @@ const Menu = ({ open, handleMenu }) => {
     <>
       {/* search Menu */}
       <div
-        className={`border p-6 absolute z-20 top-0 left-0 w-full h-screen lg:w-1/3 bg-primary transition-all duration-300 transform ${
+        className={`border-4 border-yellow-400 p-6 absolute z-20 top-0 left-0 w-full h-screen lg:w-1/3 bg-primary transition-all duration-300 transform ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
