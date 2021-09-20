@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Card from "./cards/Card";
 import HightlightsCard from "./cards/HightlightsCard";
 import HomeScreen from "./homescreen/HomeScreen";
@@ -6,11 +7,12 @@ import Menu from "./menu/Menu";
 import Unitswitch from "./unitswitch/Unitswitch";
 
 function App() {
+  const [isOpen, setisOpen] = useState(false);
   return (
     <Layout>
       <div className="bg-primary p-6 col-span-1">
-        {/* <Menu /> */}
-        <HomeScreen />
+        <Menu handleMenu={() => setisOpen(!isOpen)} open={isOpen} />
+        <HomeScreen handleMenu={() => setisOpen(!isOpen)} />
       </div>
       <div className="bg-secondary col-span-2 ">
         <div className="mx-auto w-3/4 pt-10">

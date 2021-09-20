@@ -1,13 +1,17 @@
 import CustomButton from "../custom-button/customButton";
 import shower from "../../assets/img/Shower.png";
+import { useState } from "react";
 
-const HomeScreen = () => {
+const HomeScreen = ({ handleMenu }) => {
   return (
     <>
       {/* search button and loacalisation */}
       <div className="bg-primary p-6 ">
         <div className="flex w-full justify-between items-center">
-          <CustomButton className="bg-gray-400 px-4 py-2 text-white shadow-md">
+          <CustomButton
+            onClick={() => handleMenu()}
+            className="bg-gray-400 px-4 py-2 text-white shadow-md"
+          >
             Search for places
           </CustomButton>
           <CustomButton className="bg-gray-400 h-10 w-10 rounded-full text-white shadow-md flex items-center justify-center">

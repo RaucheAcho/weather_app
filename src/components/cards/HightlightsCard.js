@@ -8,7 +8,7 @@ function DayDetailsCard() {
       </p>
       <div className="flex items-center">
         <span className="bg-gray-400 flex justify-center items-center w-10 h-10 rounded-full mr-2">
-          <span className="material-icons transform -scale-1  -rotate-45">
+          <span className="material-icons w-4 transform -scale-1  -rotate-45">
             send
           </span>
         </span>
