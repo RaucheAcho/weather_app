@@ -32,7 +32,7 @@ const CardList = () => {
       ) : (
         <>
           {isWeather.upcomingDays.map((day) => {
-            return <Card day={day} />;
+            return <Card key={day.weekday} day={day} />;
           })}
         </>
       )}

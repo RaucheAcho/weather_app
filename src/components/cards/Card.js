@@ -1,6 +1,6 @@
 const Card = ({ day }) => {
-  let img =
-    "https://www.metaweather.com/static/img/weather/" + `${day.imgUrl}.svg`;
+  let img = process.env.PUBLIC_URL + `/icons/${day.imgUrl}.png`;
+
   return (
     <div className="bg-primary w-auto h-44 flex flex-col items-center justify-center space-y-6">
       <h3 className="text-white">{day.weekday}</h3>
