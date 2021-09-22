@@ -4,7 +4,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 const HomeScreen = ({ handleMenu }) => {
   const { isLoading, isWeather } = useMetaWeather();
-  console.log(isLoading);
+  console.log(isWeather);
   return (
     <>
       {/* search button and loacalisation */}
@@ -49,18 +49,32 @@ const HomeScreen = ({ handleMenu }) => {
         ) : (
           <div className="flex flex-col items-center space-y-10 text-gray-200 mt-8 bg-primary">
             <div className="w-38">
-              <img src={""} alt="" />
+              <img
+                src={
+                  process.env.PUBLIC_URL +
+                  `/icons/${isWeather.currentDay.weatherIcon}.png`
+                }
+                alt=""
+              />
             </div>
             <p>
-              <span className="text-8xl font-bold">27</span>
+              <span className="text-8xl font-bold">
+                {isWeather.currentDay.temperature}
+              </span>
               <span className="text-4xl">°C</span>
             </p>
-            <p className="text-4xl font-light">clear</p>
+            <p className="text-4xl font-light">
+              {isWeather.currentDay.weatherDescription}
+            </p>
             <div className="flex flex-col space-y-4 items-center">
-              <p className="text-xl font-light">Today . date</p>
+              <p className="text-xl font-light">
+                Today . {isWeather.currentDay.date}
+              </p>
               <div className="flex">
                 <span className="material-icons">location_on</span>
-                <p className="text-xl font-light">location</p>
+                <p className="text-xl font-light">
+                  {isWeather.currentDay.location}
+                </p>
               </div>
             </div>
           </div>
