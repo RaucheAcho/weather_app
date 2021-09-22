@@ -17,10 +17,15 @@ module.exports = {
       scale: {
         "-1": "-1",
       },
+      fontFamily: {
+        raleway: "'Raleway', sans-serif",
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      borderStyle: ["hover"],
+    },
   },
   plugins: [],
 };

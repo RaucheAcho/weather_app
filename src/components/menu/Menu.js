@@ -1,7 +1,21 @@
+import { useState } from "react";
+import City from "../city/City";
 import CustomButton from "../custom-button/customButton";
 import FormInput from "../form-input/FormInput";
 
-const Menu = ({ open, handleMenu }) => {
+const Menu = ({ open, handleMenu, submitLocation, cities, getLocation }) => {
+  const [location, setLocation] = useState("");
+
+  const handleChange = (event) => {
+    setLocation(event.target.value);
+  };
+  //submit form to search city
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!location || location === "") return;
+    submitLocation(location);
+  };
+  //console.log(cities);
   return (
     <>
       {/* search Menu */}
@@ -16,14 +30,30 @@ const Menu = ({ open, handleMenu }) => {
         >
           close
         </CustomButton>
-        <div className="flex justify-center mt-20">
+        <form onSubmit={handleSubmit} className="flex justify-center mt-20">
           <FormInput
+            value={location}
+            handleChange={handleChange}
             placeholder="search location"
             className="text-gray-200 w-full h-10 bg-primary outline-none border border-gray-200 px-2 rounded-none"
           />
           <CustomButton className="bg-blue-600 px-4 ml-1 text-white outline-none">
             Search
           </CustomButton>
+        </form>
+
+        <div className="h-96 overflow-y-auto mt-10">
+          {cities
+            ? cities.map((city) => {
+                return (
+                  <City
+                    onClick={() => getLocation(city.title)}
+                    key={city.woeid}
+                    city={city}
+                  />
+                );
+              })
+            : ""}
         </div>
       </div>
     </>

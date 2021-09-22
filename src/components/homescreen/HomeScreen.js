@@ -1,7 +1,10 @@
 import CustomButton from "../custom-button/customButton";
-import shower from "../../assets/img/Shower.png";
+import useMetaWeather from "../../hooks/userMetaWeather";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 const HomeScreen = ({ handleMenu }) => {
+  const { isLoading, isWeather } = useMetaWeather();
+  console.log(isLoading);
   return (
     <>
       {/* search button and loacalisation */}
@@ -14,26 +17,54 @@ const HomeScreen = ({ handleMenu }) => {
             Search for places
           </CustomButton>
           <CustomButton className="bg-gray-400 h-10 w-10 rounded-full text-white shadow-md flex items-center justify-center">
-            <span class="material-icons">gps_fixed</span>
+            <span className="material-icons">gps_fixed</span>
           </CustomButton>
         </div>
-        <div className="flex flex-col items-center space-y-10 text-gray-200 mt-8 bg-primary">
-          <div className="w-38">
-            <img src={shower} alt="" />
-          </div>
-          <p>
-            <span className="text-8xl font-bold">15</span>
-            <span className="text-4xl">°C</span>
-          </p>
-          <p className="text-4xl font-light">Shower</p>
-          <div className="flex flex-col space-y-4 items-center">
-            <p className="text-xl font-light">Today . Fri, 5 jun</p>
-            <div className="flex">
-              <span class="material-icons">location_on</span>
-              <p className="text-xl font-light">Helsinki</p>
+        {isLoading ? (
+          <div className="flex flex-col items-start space-y-10 text-gray-200 mt-8 bg-primary">
+            <div className="w-38">
+              <SkeletonTheme color="#100E2D" highlightColor="#1E213A">
+                <Skeleton height={120} width={160} />
+              </SkeletonTheme>
+            </div>
+            <p>
+              <SkeletonTheme color="#100E2D" highlightColor="#1E213A">
+                <Skeleton height={90} width={200} />
+              </SkeletonTheme>
+            </p>
+            <SkeletonTheme color="#100E2D" highlightColor="#1E213A">
+              <Skeleton height={30} width={70} />
+            </SkeletonTheme>
+            <div className="flex flex-col space-y-4 items-center">
+              <SkeletonTheme color="#100E2D" highlightColor="#1E213A">
+                <Skeleton height={30} width={100} />
+              </SkeletonTheme>
+              <div className="flex">
+                <SkeletonTheme color="#100E2D" highlightColor="#1E213A">
+                  <Skeleton height={30} width={100} />
+                </SkeletonTheme>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="flex flex-col items-center space-y-10 text-gray-200 mt-8 bg-primary">
+            <div className="w-38">
+              <img src={""} alt="" />
+            </div>
+            <p>
+              <span className="text-8xl font-bold">27</span>
+              <span className="text-4xl">°C</span>
+            </p>
+            <p className="text-4xl font-light">clear</p>
+            <div className="flex flex-col space-y-4 items-center">
+              <p className="text-xl font-light">Today . date</p>
+              <div className="flex">
+                <span className="material-icons">location_on</span>
+                <p className="text-xl font-light">location</p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

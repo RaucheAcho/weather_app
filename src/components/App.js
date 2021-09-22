@@ -1,31 +1,44 @@
 import { useState } from "react";
-import Card from "./cards/Card";
-import WindStatus from "./cards/WindStatus";
-import Humidity from "./cards/Humidity";
-import Visibility from "./cards/Visibility";
-import AirPressure from "./cards/AirPressure";
 import HomeScreen from "./homescreen/HomeScreen";
 import Layout from "./layouts/Layout";
 import Menu from "./menu/Menu";
 import Unitswitch from "./unitswitch/Unitswitch";
+import useMetaWeather from "../hooks/userMetaWeather";
+import CardList from "./cards/CardList";
+import ItemList from "./cards/ItemList";
 
 function App() {
+  const { isError, isLoading, searchLocation, cities, getLocation, isWeather } =
+    useMetaWeather();
+  //console.log(isWeather);
   const [isOpen, setisOpen] = useState(false);
+  const submitLocation = (value) => {
+    searchLocation(value);
+  };
+
   return (
     <Layout>
       <div className="bg-primary p-6 col-span-1">
-        <Menu handleMenu={() => setisOpen(!isOpen)} open={isOpen} />
-        <HomeScreen handleMenu={() => setisOpen(!isOpen)} />
+        <Menu
+          getLocation={getLocation}
+          isLoading={isLoading}
+          error={isError}
+          cities={cities}
+          submitLocation={submitLocation}
+          handleMenu={() => setisOpen(!isOpen)}
+          open={isOpen}
+        />
+        <HomeScreen
+          isWeather={isWeather}
+          isLoading={isLoading}
+          handleMenu={() => setisOpen(!isOpen)}
+        />
       </div>
       <div className="bg-secondary col-span-2 ">
         <div className="mx-auto w-3/4 pt-10">
           <Unitswitch />
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-10 my-10">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <CardList />
           </div>
           <div className="flex flex-col justify-between pb-4">
             <div className="flex flex-col items-start mb-auto">
@@ -33,10 +46,7 @@ function App() {
                 Today’s Hightlights
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-                <WindStatus />
-                <Humidity />
-                <Visibility />
-                <AirPressure />
+                <ItemList />
               </div>
             </div>
           </div>
