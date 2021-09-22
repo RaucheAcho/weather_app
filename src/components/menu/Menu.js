@@ -1,12 +1,18 @@
 import { useState } from "react";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import City from "../city/City";
 import CustomButton from "../custom-button/customButton";
 import FormInput from "../form-input/FormInput";
 
-const Menu = ({ open, handleMenu, submitLocation, cities, cityName }) => {
+const Menu = ({
+  open,
+  handleMenu,
+  submitLocation,
+  cities,
+  setCities,
+  cityName,
+}) => {
   const [locationName, setLocationName] = useState("");
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
 
   const handleChange = (event) => {
     setLocationName(event.target.value);
@@ -17,10 +23,15 @@ const Menu = ({ open, handleMenu, submitLocation, cities, cityName }) => {
     if (!locationName || locationName === "") return;
     submitLocation(locationName);
     setLocationName("");
+    setLoader(true);
   };
   const onGetLocation = (location) => {
     cityName(location);
+    handleMenu();
+    setCities(null);
+    setLoader(false);
   };
+
   //console.log(cities);
   return (
     <>
@@ -64,13 +75,11 @@ const Menu = ({ open, handleMenu, submitLocation, cities, cityName }) => {
             })
           ) : (
             <>
-              <div
-                type="button"
-                className="w-full flex  justify-center mt-20"
-                disabled
-              >
-                <div className="animate-spin border-b-4 border-t-4 rounded-full h-10 w-10 mr-3"></div>
-              </div>
+              {!!loader && (
+                <div className="w-full flex  justify-center mt-20">
+                  <div className="animate-spin border-b-4 border-t-4 rounded-full h-10 w-10 mr-3"></div>
+                </div>
+              )}
             </>
           )}
         </div>

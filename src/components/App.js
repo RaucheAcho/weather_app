@@ -8,8 +8,15 @@ import CardList from "./cards/CardList";
 import ItemList from "./cards/ItemList";
 
 function App() {
-  const { isError, isLoading, searchLocation, cities, isWeather, setCityName } =
-    useMetaWeather();
+  const {
+    isError,
+    isLoading,
+    searchLocation,
+    cities,
+    setCities,
+    isWeather,
+    setCityName,
+  } = useMetaWeather();
   //console.log(isWeather);
   const [isOpen, setisOpen] = useState(false);
   const submitLocation = (value) => {
@@ -20,6 +27,7 @@ function App() {
     <Layout>
       <div className="bg-primary p-6 col-span-1">
         <Menu
+          setCities={setCities}
           cityName={setCityName}
           isLoading={isLoading}
           error={isError}

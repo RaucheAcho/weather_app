@@ -103,6 +103,7 @@ const useMetaWeather = () => {
     searchLocation,
     cities,
     setCityName,
+    setCities,
   };
 };
 
