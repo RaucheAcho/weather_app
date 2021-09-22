@@ -6,6 +6,7 @@ import Unitswitch from "./unitswitch/Unitswitch";
 import useMetaWeather from "../hooks/userMetaWeather";
 import CardList from "./cards/CardList";
 import ItemList from "./cards/ItemList";
+import { Helmet } from "react-helmet";
 
 function App() {
   const {
@@ -25,6 +26,10 @@ function App() {
 
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>weather app test</title>
+      </Helmet>
       <div className="bg-primary p-6 col-span-1">
         <Menu
           setCities={setCities}
