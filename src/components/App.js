@@ -8,7 +8,7 @@ import CardList from "./cards/CardList";
 import ItemList from "./cards/ItemList";
 
 function App() {
-  const { isError, isLoading, searchLocation, cities, getLocation, isWeather } =
+  const { isError, isLoading, searchLocation, cities, isWeather, setCityName } =
     useMetaWeather();
   //console.log(isWeather);
   const [isOpen, setisOpen] = useState(false);
@@ -20,7 +20,7 @@ function App() {
     <Layout>
       <div className="bg-primary p-6 col-span-1">
         <Menu
-          getLocation={getLocation}
+          cityName={setCityName}
           isLoading={isLoading}
           error={isError}
           cities={cities}
@@ -38,7 +38,7 @@ function App() {
         <div className="mx-auto w-3/4 pt-10">
           <Unitswitch />
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-10 my-10">
-            <CardList />
+            <CardList isWeather={isWeather} isLoading={isLoading} />
           </div>
           <div className="flex flex-col justify-between pb-4">
             <div className="flex flex-col items-start mb-auto">
@@ -46,7 +46,7 @@ function App() {
                 Today’s Hightlights
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-                <ItemList />
+                <ItemList isWeather={isWeather} isLoading={isLoading} />
               </div>
             </div>
           </div>

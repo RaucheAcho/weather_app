@@ -1,10 +1,8 @@
 import React from "react";
-import useMetaWeather from "../../hooks/userMetaWeather";
 import Card from "./Card";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-const CardList = () => {
-  const { isError, isLoading, isWeather } = useMetaWeather();
+const CardList = ({ isWeather, isLoading }) => {
   return (
     <>
       {isLoading ? (

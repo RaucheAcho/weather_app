@@ -2,11 +2,9 @@ import WindStatus from "./WindStatus";
 import Humidity from "./Humidity";
 import Visibility from "./Visibility";
 import AirPressure from "./AirPressure";
-import useMetaWeather from "../../hooks/userMetaWeather";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-const ItemList = () => {
-  const { isError, isLoading, isWeather } = useMetaWeather();
+const ItemList = ({ isLoading, isWeather }) => {
   return (
     <>
       {isLoading ? (

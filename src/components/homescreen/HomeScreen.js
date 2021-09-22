@@ -1,10 +1,8 @@
 import CustomButton from "../custom-button/customButton";
-import useMetaWeather from "../../hooks/userMetaWeather";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-const HomeScreen = ({ handleMenu }) => {
-  const { isLoading, isWeather } = useMetaWeather();
-  console.log(isWeather);
+const HomeScreen = ({ handleMenu, isLoading, isWeather }) => {
+  //console.log(isWeather);
   return (
     <>
       {/* search button and loacalisation */}

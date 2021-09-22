@@ -1,19 +1,25 @@
 import { useState } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import City from "../city/City";
 import CustomButton from "../custom-button/customButton";
 import FormInput from "../form-input/FormInput";
 
-const Menu = ({ open, handleMenu, submitLocation, cities, getLocation }) => {
-  const [location, setLocation] = useState("");
+const Menu = ({ open, handleMenu, submitLocation, cities, cityName }) => {
+  const [locationName, setLocationName] = useState("");
+  const [loader, setLoader] = useState(true);
 
   const handleChange = (event) => {
-    setLocation(event.target.value);
+    setLocationName(event.target.value);
   };
   //submit form to search city
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!location || location === "") return;
-    submitLocation(location);
+    if (!locationName || locationName === "") return;
+    submitLocation(locationName);
+    setLocationName("");
+  };
+  const onGetLocation = (location) => {
+    cityName(location);
   };
   //console.log(cities);
   return (
@@ -32,28 +38,41 @@ const Menu = ({ open, handleMenu, submitLocation, cities, getLocation }) => {
         </CustomButton>
         <form onSubmit={handleSubmit} className="flex justify-center mt-20">
           <FormInput
-            value={location}
+            value={locationName}
             handleChange={handleChange}
             placeholder="search location"
             className="text-gray-200 w-full h-10 bg-primary outline-none border border-gray-200 px-2 rounded-none"
           />
-          <CustomButton className="bg-blue-600 px-4 ml-1 text-white outline-none">
+          <CustomButton
+            type="submit"
+            className="bg-blue-600 px-4 ml-1 text-white outline-none"
+          >
             Search
           </CustomButton>
         </form>
 
         <div className="h-96 overflow-y-auto mt-10">
-          {cities
-            ? cities.map((city) => {
-                return (
-                  <City
-                    onClick={() => getLocation(city.title)}
-                    key={city.woeid}
-                    city={city}
-                  />
-                );
-              })
-            : ""}
+          {cities ? (
+            cities.map((city) => {
+              return (
+                <City
+                  onClick={() => onGetLocation(city.title)}
+                  key={city.woeid}
+                  city={city}
+                />
+              );
+            })
+          ) : (
+            <>
+              <div
+                type="button"
+                className="w-full flex  justify-center mt-20"
+                disabled
+              >
+                <div className="animate-spin border-b-4 border-t-4 rounded-full h-10 w-10 mr-3"></div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>

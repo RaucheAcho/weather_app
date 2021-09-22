@@ -11,6 +11,7 @@ const useMetaWeather = () => {
   const [isLoading, setLoading] = useState(true);
   const [isWeather, setWeather] = useState(null);
   const [cities, setCities] = useState(null);
+  const [cityName, setCityName] = useState("Abidjan");
 
   //api stuff
   const searchLocation = async (term) => {
@@ -89,10 +90,10 @@ const useMetaWeather = () => {
   };
 
   useEffect(() => {
-    getLocation("Abidjan");
-  }, []);
+    getLocation(cityName);
+  }, [cityName]);
 
-  //console.log(isLoading);
+  console.log(cityName);
 
   return {
     isError,
@@ -101,6 +102,7 @@ const useMetaWeather = () => {
     getLocation,
     searchLocation,
     cities,
+    setCityName,
   };
 };
 
