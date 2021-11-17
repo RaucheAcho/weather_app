@@ -39,9 +39,9 @@
 ![screenshot](https://firebasestorage.googleapis.com/v0/b/weather-app-2a72a.appspot.com/o/weather-app.png?alt=media&token=c3cf03e1-4c43-4c55-9334-8c2baaa39ebd)
 
 - Where can I see your demo?
-- https://weather-app-2a72a.web.app/
+  https://weather-app-2a72a.web.app/
 - What was your experience building it.
-- it was very cool
+  it was very cool
 
 ### Built With
 
