@@ -40,7 +40,6 @@
 
 - Where can I see your demo?
 - https://weather-app-2a72a.web.app/
--
 - What was your experience building it.
 - it was very cool
 
