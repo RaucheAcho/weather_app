@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://{https://weather-app-2a72a.web.app/}">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://{github.com/RaucheAcho/weather_app}">
       Solution
     </a>
     <span> | </span>
@@ -38,17 +38,21 @@
 
 ![screenshot](https://firebasestorage.googleapis.com/v0/b/weather-app-2a72a.appspot.com/o/weather-app.png?alt=media&token=c3cf03e1-4c43-4c55-9334-8c2baaa39ebd)
 
-Introduce your projects by taking a screenshot, video recordings or a gif. Try to tell us about the solution you built by answering the following:
-
 - Where can I see your demo?
+- https://weather-app-2a72a.web.app/
+-
 - What was your experience building it.
+- it was very cool
 
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 - [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
+- [React-Helmet](https://www.npmjs.com/package/react-helmet)
+- [React-skeleton](https://www.npmjs.com/package/react-loading-skeleton)
+- [Axios](https://www.npmjs.com/package/axios)
+- [metaweather api](https://www.metaweather.com/api/)
 - [Tailwind](https://tailwindcss.com/)
 
 ## Features
@@ -56,6 +60,8 @@ Introduce your projects by taking a screenshot, video recordings or a gif. Try t
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
 What features did you develop?
+
+user
 
 ## How To Use
 
